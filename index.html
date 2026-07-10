@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Warkop Pancong Ceria - Nikmatnya Kopi Tradisional</title>
+    <title>Warkop Pancong Ceria - PANCONG LUMER, BIKIN MELER.</title>
     <style>
         * {
             margin: 0;
@@ -34,6 +34,24 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+        }
+
+        /* Tambahan untuk logo */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d4a574;
+            background: #fff5ee;
+            /* Bisa pakai gambar atau SVG inline */
         }
 
         .logo {
@@ -207,7 +225,7 @@
         .price {
             font-size: 1.3rem;
             font-weight: bold;
-            color: #d4a574;
+            color: #000000;
         }
 
         /* Gallery */
@@ -419,6 +437,15 @@
             .contact-container {
                 grid-template-columns: 1fr;
             }
+
+            .logo-img {
+                width: 35px;
+                height: 35px;
+            }
+
+            .logo {
+                font-size: 1.4rem;
+            }
         }
     </style>
 </head>
@@ -426,7 +453,34 @@
     <!-- Navbar -->
     <nav>
         <div class="nav-container">
-            <a href="#" class="logo">Pancong<span>Ceria</span></a>
+            <!-- TAMBAHAN LOGO DISINI -->
+            <a href="#" class="logo-container">
+                <!-- Logo SVG kue pancong + kopi -->
+                <svg class="logo-img" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Lingkaran background -->
+                    <circle cx="50" cy="50" r="48" fill="#fff5ee" stroke="#d4a574" stroke-width="3"/>
+                    
+                    <!-- Cangkir kopi -->
+                    <rect x="30" y="45" width="30" height="25" rx="3" fill="#4a2c2a"/>
+                    <path d="M60 50 Q70 50 70 58 Q70 66 60 66" fill="none" stroke="#4a2c2a" stroke-width="3"/>
+                    
+                    <!-- Uap kopi -->
+                    <path d="M38 40 Q40 33 38 26" fill="none" stroke="#d4a574" stroke-width="2"/>
+                    <path d="M45 38 Q47 31 45 24" fill="none" stroke="#d4a574" stroke-width="2"/>
+                    <path d="M52 40 Q54 33 52 26" fill="none" stroke="#d4a574" stroke-width="2"/>
+                    
+                    <!-- Pancong/kue di bawah -->
+                    <ellipse cx="45" cy="78" rx="18" ry="5" fill="#d4a574"/>
+                    <path d="M30 78 L45 60 L60 78" fill="#c4956a" stroke="#4a2c2a" stroke-width="1"/>
+                    
+                    <!-- Kelapa parut -->
+                    <circle cx="40" cy="73" r="2" fill="#fff5ee"/>
+                    <circle cx="45" cy="70" r="2" fill="#fff5ee"/>
+                    <circle cx="50" cy="73" r="2" fill="#fff5ee"/>
+                </svg>
+                <div class="logo">Pancong<span>Ceria</span></div>
+            </a>
+            
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home">Beranda</a></li>
                 <li><a href="#about">Tentang</a></li>
@@ -446,7 +500,7 @@
     <section class="hero" id="home">
         <div class="hero-content">
             <h1>Selamat Datang di Pancong Ceria</h1>
-            <p>Nikmati kelezatan kopi tradisional dan kue pancong autentik</p>
+            <p>Pancong lumer dengan cita rasa yang nikmat, Disajikan dengan berbagai pilihan toping favorit. Teman terbaik untuk bersantai dengan harga yang ramah dikantong.</p>
             <a href="#menu" class="cta-button">Lihat Menu Kami</a>
         </div>
     </section>
@@ -459,8 +513,8 @@
             </div>
             <div class="about-text">
                 <h2>Tentang Kami</h2>
-                <p>Warkop Pancong Ceria hadir sejak 2015 dengan misi melestarikan cita rasa kopi tradisional Indonesia. Kami menggunakan biji kopi pilihan dari berbagai daerah di Nusantara, dipadukan dengan kue pancong legendaris yang dibuat dengan resep turun-temurun.</p>
-                <p>Suasana nyaman dan pelayanan ramah membuat Warkop Pancong Ceria menjadi tempat favorit untuk bersantai, bekerja, atau berkumpul bersama teman dan keluarga.</p>
+                <p>Warkop Pancong adalah tempat nongkrong yang menyajikan pancong dengan cita rasa tradisional dan pilihan topping kekinian. Ditemani kopi, teh, dan berbagai minuman segar, kami ingin menciptakan tempat yang nyaman untuk menikmati makanan enak sambil menghabiskan waktu bersama.</p>
+                <p>Di sini, kamu bisa datang untuk ngobrol, nugas, work from cafe, atau sekadar istirahat sejenak dari aktivitas sehari-hari. Kami selalu menggunakan bahan-bahan yang segar, menjaga kualitas rasa di setiap sajian, serta memberikan pelayanan yang ramah dengan harga yang tetap terjangkau. Harapannya, setiap orang yang datang bisa merasa nyaman dan ingin kembali lagi.</p>
             </div>
         </div>
     </section>
