@@ -1,1 +1,631 @@
-# Warkop-Pancong-Ceria
+# Warkop-Pancong-Ceria<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warkop Pancong Ceria - Nikmatnya Kopi Tradisional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f5e6d3;
+        }
+
+        /* Navbar */
+        nav {
+            background: #4a2c2a;
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #f5e6d3;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #d4a574;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: #f5e6d3;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #d4a574;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #f5e6d3;
+            margin: 2px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1920') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: #d4a574;
+            color: #4a2c2a;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            background: #c4956a;
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 2rem;
+            background: #fff5ee;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: #4a2c2a;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Menu Section */
+        .menu {
+            padding: 5rem 2rem;
+            background: #f5e6d3;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #4a2c2a;
+            margin-bottom: 3rem;
+        }
+
+        .menu-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .menu-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .menu-info {
+            padding: 1.5rem;
+        }
+
+        .menu-info h3 {
+            color: #4a2c2a;
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-info p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #d4a574;
+        }
+
+        /* Gallery */
+        .gallery {
+            padding: 5rem 2rem;
+            background: #fff5ee;
+        }
+
+        .gallery-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 250px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 5rem 2rem;
+            background: #f5e6d3;
+        }
+
+        .testimonials-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .testimonial-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            border: 3px solid #d4a574;
+        }
+
+        .stars {
+            color: #ffd700;
+            margin: 0.5rem 0;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 5rem 2rem;
+            background: #fff5ee;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info h2 {
+            font-size: 2.5rem;
+            color: #4a2c2a;
+            margin-bottom: 1rem;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin: 1rem 0;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            width: 50px;
+            height: 50px;
+            background: #d4a574;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-family: inherit;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: #4a2c2a;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #3a2018;
+        }
+
+        /* Footer */
+        footer {
+            background: #4a2c2a;
+            color: #f5e6d3;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            color: #d4a574;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: #f5e6d3;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #d4a574;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #6a4c4a;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: #4a2c2a;
+                padding: 1rem;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">Pancong<span>Ceria</span></a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#gallery">Galeri</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Selamat Datang di Pancong Ceria</h1>
+            <p>Nikmati kelezatan kopi tradisional dan kue pancong autentik</p>
+            <a href="#menu" class="cta-button">Lihat Menu Kami</a>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600" alt="Warkop Pancong Ceria">
+            </div>
+            <div class="about-text">
+                <h2>Tentang Kami</h2>
+                <p>Warkop Pancong Ceria hadir sejak 2015 dengan misi melestarikan cita rasa kopi tradisional Indonesia. Kami menggunakan biji kopi pilihan dari berbagai daerah di Nusantara, dipadukan dengan kue pancong legendaris yang dibuat dengan resep turun-temurun.</p>
+                <p>Suasana nyaman dan pelayanan ramah membuat Warkop Pancong Ceria menjadi tempat favorit untuk bersantai, bekerja, atau berkumpul bersama teman dan keluarga.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu -->
+    <section class="menu" id="menu">
+        <h2 class="section-title">Menu Andalan Kami</h2>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400" alt="Kopi Pancong">
+                <div class="menu-info">
+                    <h3>Kopi Pancong Special</h3>
+                    <p>Kopi robusta pilihan dengan racikan gula aren asli</p>
+                    <span class="price">Rp 15.000</span>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefda?w=400" alt="Kue Pancong">
+                <div class="menu-info">
+                    <h3>Kue Pancong Original</h3>
+                    <p>Kue tradisional dengan taburan kelapa dan gula</p>
+                    <span class="price">Rp 12.000</span>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400" alt="Es Kopi">
+                <div class="menu-info">
+                    <h3>Es Kopi Susu Gula Aren</h3>
+                    <p>Kopi susu kekinian dengan gula aren premium</p>
+                    <span class="price">Rp 20.000</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery" id="gallery">
+        <h2 class="section-title">Galeri</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=400" alt="Interior">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=400" alt="Kopi">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400" alt="Suasana">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=400" alt="Barista">
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <h2 class="section-title">Apa Kata Mereka?</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100" alt="Pelanggan">
+                <h3>Sarah Amelia</h3>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>"Kopi Pancong terenak yang pernah saya coba! Suasananya juga cozy banget buat kerja."</p>
+            </div>
+            <div class="testimonial-card">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100" alt="Pelanggan">
+                <h3>Budi Santoso</h3>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>"Kue pancongnya bikin nostalgia masa kecil. Recommended banget!"</p>
+            </div>
+            <div class="testimonial-card">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100" alt="Pelanggan">
+                <h3>Maya Indah</h3>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>"Tempat nongkrong favorit! Pelayanannya ramah dan harganya terjangkau."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Hubungi Kami</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Kontak & Lokasi</h2>
+                <div class="contact-detail">
+                    <div class="contact-icon">📍</div>
+                    <p>Jl. Kopi Nikmat No. 123, Jakarta Selatan</p>
+                </div>
+                <div class="contact-detail">
+                    <div class="contact-icon">📞</div>
+                    <p>+62 812-3456-7890</p>
+                </div>
+                <div class="contact-detail">
+                    <div class="contact-icon">✉️</div>
+                    <p>info@pancongceria.com</p>
+                </div>
+                <div class="contact-detail">
+                    <div class="contact-icon">🕐</div>
+                    <p>Setiap Hari: 07:00 - 22:00 WIB</p>
+                </div>
+            </div>
+            <form class="contact-form">
+                <input type="text" placeholder="Nama Lengkap" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Pesan Anda..." required></textarea>
+                <button type="submit" class="submit-btn">Kirim Pesan</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Pancong Ceria</h3>
+                <p>Warkop tradisional dengan cita rasa modern. Tempat yang tepat untuk menikmati kopi dan kue pancong autentik.</p>
+                <div class="social-links">
+                    <a href="#">📱</a>
+                    <a href="#">📘</a>
+                    <a href="#">📸</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Jam Operasional</h3>
+                <p>Senin - Jumat: 07:00 - 22:00</p>
+                <p>Sabtu - Minggu: 07:00 - 23:00</p>
+            </div>
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <p>Dapatkan info promo dan menu terbaru</p>
+                <input type="email" placeholder="Email Anda" style="padding: 0.5rem; width: 100%; margin-top: 0.5rem; border-radius: 5px; border: none;">
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Warkop Pancong Ceria. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                navMenu.classList.remove('active');
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Terima kasih! Pesan Anda telah terkirim. Kami akan menghubungi Anda segera.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
